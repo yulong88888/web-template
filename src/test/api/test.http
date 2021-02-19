@@ -1,0 +1,35 @@
+### 获取token
+POST http://localhost:8080/oauth/token
+Authorization: Basic client secret
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&scope=all&username=admin&password=admin
+
+
+### 尝试获取数据
+GET http://localhost:8080/test
+Authorization: Bearer fb68731b-488e-4f19-8391-ef2fc8282b89
+
+
+### 刷新token
+POST http://localhost:8080/oauth/token
+Authorization: Basic client secret
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&refresh_token=716d9bd7-d523-4536-93c6-a74db21de9cb
+
+
+### 尝试获取JWT数据
+GET http://localhost:8080/jwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTM3NDg0MTAsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiYWRtaW4iXSwianRpIjoiNTVlM2RiODQtZDEzNi00NDk5LWE0YTUtMDVmMDlkNTcwMjhkIiwiY2xpZW50X2lkIjoiY2xpZW50Iiwic2NvcGUiOlsiYWxsIl19.pGtdlOuAsuBPXYW-lxMDgxXtOicsR1T1XXmXdZi7wAI
+
+
+### 刷新JWT token
+POST http://localhost:8080/oauth/token
+Authorization: Basic client secret
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJhdGkiOiI2NzQ5NDU2Zi04ZTUxLTQ4MjgtOTAxZS1iOGM3NGYyOTNjMWYiLCJleHAiOjE2MTM4MzQzNjIsImF1dGhvcml0aWVzIjpbImFkbWluIl0sImp0aSI6ImU5MGYxMmQ3LWJkNWQtNDA4Ny05ZWUxLWIyYWRjY2RhMDk5OSIsImNsaWVudF9pZCI6ImNsaWVudCJ9.h2TBYVT8AV4Sl8-MQM7zD-rPlPjSdAq7TfcTiADi9aI
+
+### ????
+
