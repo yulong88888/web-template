@@ -30,14 +30,12 @@ public class TestController {
     @Secured("ROLE_ADMIN")
     @GetMapping("/admin")
     public Object getAdminData() {
-        System.out.println("fuck1");
         return "Admin data";
     }
 
     @Secured("ROLE_USER")
     @GetMapping("/user")
     public Object getUserData() {
-        System.out.println("fuck2");
         return "User data";
     }
 }
