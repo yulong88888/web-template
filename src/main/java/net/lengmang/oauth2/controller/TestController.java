@@ -1,7 +1,9 @@
 package net.lengmang.oauth2.controller;
 
 import io.jsonwebtoken.Jwts;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +25,19 @@ public class TestController {
         return Jwts.parser().setSigningKey("lengmang".getBytes(StandardCharsets.UTF_8))
                 .parseClaimsJws(token)
                 .getBody();
+    }
+
+    @Secured("ROLE_ADMIN")
+    @GetMapping("/admin")
+    public Object getAdminData() {
+        System.out.println("fuck1");
+        return "Admin data";
+    }
+
+    @Secured("ROLE_USER")
+    @GetMapping("/user")
+    public Object getUserData() {
+        System.out.println("fuck2");
+        return "User data";
     }
 }
