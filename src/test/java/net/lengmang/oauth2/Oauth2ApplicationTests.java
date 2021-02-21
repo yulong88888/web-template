@@ -4,9 +4,13 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import net.lengmang.oauth2.entity.StudentEntity;
+import net.lengmang.oauth2.repository.StudentRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 @SpringBootTest
@@ -75,6 +79,19 @@ class Oauth2ApplicationTests {
         System.out.println("sub=" + claims.getSubject());
         System.out.println("iat=" + claims.getIssuedAt());
         System.out.println("customer=" + claims.get("fuck"));
+    }
+
+    @Autowired
+    StudentRepository studentRepository;
+
+    @Test
+    void crud(){
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setUsername("0.0");
+        studentEntity.setPassword("123");
+        studentEntity.setAvatar("");
+        studentEntity.setBirthday(new Timestamp(System.currentTimeMillis()));
+        studentRepository.save(studentEntity);
     }
 
 }
