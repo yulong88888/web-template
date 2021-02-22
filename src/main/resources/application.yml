@@ -2,7 +2,8 @@ spring:
   application:
     name: oauth2
   datasource:
-    url: jdbc:mysql://localhost:3306/test
+#    url: jdbc:mysql://localhost:3306/test
+    url: jdbc:mysql://192.168.120.129:3306/test
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -11,3 +12,6 @@ spring:
       pool-name: hikari_cp
   jpa:
     show-sql: true
+
+server:
+  port: 8081
