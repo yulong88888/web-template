@@ -14,7 +14,7 @@
     <name>oauth2</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>8</java.version>
+        <java.version>14</java.version>
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
     </properties>
     <dependencies>
@@ -25,6 +25,13 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <!--这个傻狗老报WARNING（2.3.0.1版本）-->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.xml.bind</groupId>
+                    <artifactId>jaxb-impl</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
